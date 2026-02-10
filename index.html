@@ -22,24 +22,39 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
     </script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav class="show">
-        <ul>
-            <li><a href="#home">首页</a></li>
-            <li><a href="#summary">活动背景</a></li>
-            <li><a href="#schedule">日程安排</a></li>
-            <li><a href="#speaker">主讲嘉宾</a></li>
-            <li><a href="#organization">组织机构</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">ITCS <span class="nav-logo-sub">10th</span></a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">首页</a></li>
+                <li><a href="#summary" class="nav-link">活动背景</a></li>
+                <li><a href="#schedule" class="nav-link">日程安排</a></li>
+                <li><a href="#speaker" class="nav-link">主讲嘉宾</a></li>
+                <li><a href="#organization" class="nav-link">组织机构</a></li>
+            </ul>
+        </div>
     </nav>
-    <h1 style="padding-top: 100px;" id="home">ITCS Workshop</h1>
+    <header class="main-header">
+        <h1 id="home">ITCS Workshop</h1>
+        <div class="subtitle">10th Anniversary Celebration</div>
+        <div class="subtitle-cn">十周年庆典</div>
+    </header>
     <div class="content" id="summary">
         <div style="height: 50px;"></div>
         <h2>活动背景</h2>
         <p>
-            2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来九周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的九岁生日！
+            2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来十周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的十岁生日！
         </p>
         <!-- <div class="image-slider">
             <div class="slider-container">
@@ -49,14 +64,14 @@
             </div>
         </div> -->
         <p>
-            📅 活动时间：2025年6月14日-15日<br>
+            📅 活动时间：2026年6月14日-15日<br>
             📍 活动地点：上海财经大学武东路校区第三教学楼西侧102会议室<br>
         </p>
 
         <div class="schedule" id="schedule">
             <div style="height: 50px;"></div>
-            <h2>日程安排 (2025 年 6 月 14 - 15 日)</h2>
-            <div class="day" onclick="toggleDetails('day1')">6 月 14 日上午</div>
+            <h2>日程安排 (2026 年 6 月 14 - 15 日)</h2>
+            <div class="day" data-target="day1" onclick="toggleDetails('day1')">6 月 14 日上午</div>
             <div id="day1" class="details-content show">
                 <table border="1" cellspacing="0" cellpadding="5">
                     <tr>
@@ -99,7 +114,7 @@
                 </table>
             </div>
 
-            <div class="day" onclick="toggleDetails('day2')">6 月 14 日下午</div>
+            <div class="day" data-target="day2" onclick="toggleDetails('day2')">6 月 14 日下午</div>
             <div id="day2" class="details-content show">
                 <table border="1" cellspacing="0" cellpadding="5">
                     <tr>
@@ -152,7 +167,7 @@
                 </table>
             </div>
 
-            <div class="day" onclick="toggleDetails('day3')">6 月 15 日上午</div>
+            <div class="day" data-target="day3" onclick="toggleDetails('day3')">6 月 15 日上午</div>
             <div id="day3" class="details-content show">
                 <table border="1" cellspacing="0" cellpadding="5">
                     <tr>
