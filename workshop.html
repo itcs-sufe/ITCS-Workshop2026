@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITCS Workshop</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                macros: {
+                    avgq: '{\\mathrm{avgq}}',
+                    wt: '{\\mathrm{wt}}',
+                }
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">ITCS <span class="nav-logo-sub">10th</span></a>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+
+                <li><a href="#summary" class="nav-link" data-i18n="nav_background">活动背景</a></li>
+                <li><a href="#schedule" class="nav-link" data-i18n="nav_schedule">日程安排</a></li>
+                <li><a href="#speaker" class="nav-link" data-i18n="nav_speakers">主讲嘉宾</a></li>
+                <li><a href="#organization" class="nav-link" data-i18n="nav_org">组织机构</a></li>
+                <li><button id="lang-toggle" class="lang-btn">EN/中</button></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="main-header">
+        <h1 id="home">ITCS Workshop</h1>
+        <div class="subtitle">10th Anniversary Celebration</div>
+    </header>
+    <div class="breadcrumb-container">
+        <div class="breadcrumb">
+            <a href="index.html" data-i18n="breadcrumb_home">首页</a>
+            <span class="separator">/</span>
+            <span class="current" data-i18n="breadcrumb_workshop">十周年研讨会</span>
+        </div>
+    </div>
+    <div class="content" id="summary">
+        <div style="height: 50px;"></div>
+        <h2 data-i18n="section_background">活动背景</h2>
+        <p data-i18n="background_content">
+            2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来十周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的十岁生日！
+        </p>
+        <!-- <div class="image-slider">
+            <div class="slider-container">
+                <img src="img/bg1.png" alt="Conference Image 1">
+                <img src="img/bg2.png" alt="Conference Image 2">
+                <img src="img/bg3.png" alt="Conference Image 3">
+            </div>
+        </div> -->
+        <p>
+            <span data-i18n="event_date">📅 活动时间：2026年6月14日-15日</span><br>
+            <span data-i18n="event_location">📍 活动地点：上海财经大学武东路校区第三教学楼西侧102会议室</span><br>
+        </p>
+
+        <div class="schedule" id="schedule">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="schedule_title">日程安排 (2026 年 6 月 14 - 15 日)</h2>
+            <div class="day" data-target="day1" onclick="toggleDetails('day1')"><span data-i18n="day1_label">6 月 14
+                    日上午</span></div>
+            <div id="day1" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:00-09:40</td>
+                        <td class="no-wrap" data-i18n="speaker_zhang_yuhao">张宇昊</td>
+                        <td>Online Flow TimeMinimization: Tight Bounds for Non-Preemptive Algorithms</td>
+                        <td rowspan="2" data-i18n="host_fu_hu">伏虎</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:40-10:10</td>
+                        <td class="no-wrap" data-i18n="speaker_he_lie">贺烈</td>
+                        <td>Towards Robust and Efficient Large-Scale Stochastic Optimization</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:10-11:00</td>
+                        <td colspan="3"><strong data-i18n="tea_break">茶歇</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00-11:30</td>
+                        <td class="no-wrap" data-i18n="speaker_wu_xuan">吴旋</td>
+                        <td>Robust Sparsification via Sensitivity</td>
+                        <td rowspan="2" data-i18n="host_wang_xiao">王晓</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:30-12:00</td>
+                        <td class="no-wrap" data-i18n="speaker_jiang_shaofeng">姜少峰</td>
+                        <td>Local Search for Clustering in Almost-linear Time</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:00-14:00</td>
+                        <td colspan="2"><strong data-i18n="lunch">午餐</strong></td>
+                        <td class="no-wrap" data-i18n="staff_canteen">教工食堂</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="day" data-target="day2" onclick="toggleDetails('day2')"><span data-i18n="day2_label">6 月 14
+                    日下午</span></div>
+            <div id="day2" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:00-14:30</td>
+                        <td class="no-wrap" data-i18n="speaker_duan_ran">段然</td>
+                        <td>Breaking the Sorting Barrier for Directed Single-Source Shortest Paths</td>
+                        <td rowspan="3" data-i18n="host_tang_zhihao">唐志皓</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:30-15:00</td>
+                        <td class="no-wrap" data-i18n="speaker_chen_yijia">陈翌佳</td>
+                        <td>Understand uncolored CFI-graphs</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">15:00-15:30</td>
+                        <td class="no-wrap" data-i18n="speaker_zhao_han">赵晗</td>
+                        <td>Revisiting Scalarization in Multi-Task Learning</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">15:30-16:30</td>
+                        <td colspan="3"><strong data-i18n="tea_break_photo">茶歇 & 集体照</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">16:30-17:00</td>
+                        <td data-i18n="speaker_liang_xiao">梁宵</td>
+                        <td>Simulation-Based Cryptographic Security in a Quantum Era</td>
+                        <td rowspan="3" data-i18n="host_tao_yixin">陶亦心</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">17:00-17:30</td>
+                        <td data-i18n="speaker_li_yuan">李元</td>
+                        <td>Average-Case Deterministic Query Complexity of Boolean Functions with Fixed Weight</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">17:30-18:00</td>
+                        <td data-i18n="speaker_chen_xue">陈雪</td>
+                        <td>Sparse LPN and Refuting random XORs</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">18:00-20:00</td>
+                        <td colspan="2"><strong data-i18n="dinner">晚餐</strong></td>
+                        <td class="no-wrap" data-i18n="staff_canteen">教工食堂</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="day" data-target="day3" onclick="toggleDetails('day3')"><span data-i18n="day3_label">6 月 15
+                    日上午</span></div>
+            <div id="day3" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:00-09:30</td>
+                        <td class="no-wrap" data-i18n="speaker_han_kai">韩恺</td>
+                        <td>TripleEagle: Simple, Fast and Practical Budget-Feasible Mechanisms for Submodular Valuations
+                        </td>
+                        <td rowspan="2" data-i18n="host_guo_zichao">郭子超</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:30-10:00</td>
+                        <td class="no-wrap" data-i18n="speaker_feng_yiding">冯逸丁</td>
+                        <td>Persuasive Calibration</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:00-11:00</td>
+                        <td colspan="3"><strong data-i18n="tea_break">茶歇</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00-11:30</td>
+                        <td class="no-wrap" data-i18n="speaker_li_shuai">李帅</td>
+                        <td>Optimal Algorithm for Max-Min Fair Bandit</td>
+                        <td rowspan="2" data-i18n="host_xu_renzhe">徐韧喆</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:30-12:00</td>
+                        <td class="no-wrap" data-i18n="speaker_jin_yaonan">金耀楠</td>
+                        <td>Tight regret bounds for fixed price bilateral trade</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:00-14:00</td>
+                        <td colspan="2"><strong data-i18n="lunch">午餐</strong></td>
+                        <td class="no-wrap" data-i18n="staff_canteen">教工食堂</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="speaker" id="speaker">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_speakers">主讲嘉宾</h2>
+            <h3 data-i18n="day1_morning">6 月 14 日 上午</h3>
+            <h4 data-i18n="lect_1">（一）09:10-09:40 张宇昊（上海交通大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>: Online Flow Time Minimization: Tight Bounds for
+                Non-Preemptive Algorithms</h4>
+            <div class="day" onclick="toggleDetails('day29')">Abstract</div>
+            <div id="day29" class="details-content">
+                <p>
+                    This paper studies the online scheduling problem of minimizing the total flow time for $n$ jobs
+                    arriving online on $m$ identical machines. While the problem is well understood in the preemptive
+                    setting, prior work often asserts that preemption or resource augmentation is necessary, based on
+                    the $\Omega(n)$ lower bound shown by Kellerer, Tautenhahn, and Woeginger (SICOMP 1999) for
+                    deterministic non-preemptive algorithms in the single-machine case. However, this lower bound
+                    applies only to deterministic algorithms in the single-machine case and leaves several fundamental
+                    questions unanswered: What is the best deterministic competitive ratio when $m > 1$? Can randomness
+                    improve performance in the non-preemptive setting? We address both questions. We present a
+                    deterministic non-preemptive algorithm with a competitive ratio of $O(n/m^2 + \sqrt{n/m} \log m)$
+                    and prove that this is nearly tight with a lower bound of $\Omega(n/m^2 + \sqrt{n/m})$.
+                    Additionally, we provide a randomized non-preemptive algorithm with a competitive ratio of
+                    $O(\sqrt{n/m})$ and prove its tightness, surpassing the $\Omega(n)$ bound in the $m = 1$ case. We
+                    also consider the intermediate model of kill-and-restart, where interrupted jobs must restart from
+                    scratch. For $m = 1$, we prove an $\Omega(n / \log n)$ lower bound. Interestingly, the situation
+                    changes drastically once $m \geq 2$: we develop a deterministic $O(\sqrt{n/m})$-competitive
+                    algorithm, which is tight even among randomized algorithms. Since our algorithms run in polynomial
+                    time, they improve the best-known offline approximation ratio from $O(\sqrt{n/m} \log(n/m))$ to
+                    $O(\sqrt{n/m})$.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day100')">Bio</div>
+            <div id="day100" class="details-content">
+                <p>
+                    Yuhao zhang is an Associate Professor of John Hopcroft Center for Computer Science at Shanghai Jiao
+                    Tong University since 2021, working in the field of theoretical computer science. He obtained his
+                    Ph.D. (2016~2020) from the Department of Computer Science at the University of Hong Kong, supervised
+                    by Dr. Zhiyi Huang. Before that, he got his B.E. from the College of Computer Science and Technology
+                    at Zhejiang University (2012~2016). During his undergraduate study, he started to be interested in
+                    theoretical computer science when he joined the research group of Prof. Guochuan Zhang. His research
+                    focuses on Online Algorithms and Approximation Algorithms. He is dedicated to designing algorithms
+                    with provable guarantees for real-world applications and advancing general mathematical frameworks
+                    for analyzing their performance.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_2">（二）09:40-10:10 贺烈（上海财经大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Towards Robust and Efficient Large-Scale Stochastic
+                Optimization</h4>
+            <div class="day" onclick="toggleDetails('day5')">Abstract</div>
+            <div id="day5" class="details-content">
+                <p>
+                    The rapid advancements in machine learning have been driven by increasingly large datasets and
+                    growing computational power. Developing optimization algorithms that scale effectively with data
+                    size and the number of computing machines is critical but fraught with challenges, including
+                    computational bottlenecks and communication overhead. Additionally, large-scale stochastic
+                    optimization processes are inherently vulnerable to adversaries, such as corrupted training samples
+                    or compromised machines, which can significantly degrade model performance without robust
+                    safeguards. In this talk, I will delve into the dual challenges of efficiency and robustness in
+                    large-scale machine learning problems and present our recent work in addressing these issues,
+                    including novel approaches to scalable and resilient optimization.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day101')">Bio</div>
+            <div id="day101" class="details-content">
+                <p>
+                    ​​Lie He​​ is an Assistant Professor in the School of Computing and Artificial Intelligence at
+                    Shanghai University of Finance and Economics (SUFE). He received his bachelor's degree from the
+                    University of Science and Technology of China (USTC), as well as an master's and doctoral degree in
+                    Computer Science from the École Polytechnique Fédérale de Lausanne (EPFL), Switzerland, advised by
+                    Prof. Martin Jaggi. His research centers on ​​efficient large-scale stochastic optimization​​ with
+                    ​​robustness guarantees against training-time adversaries​​ and uncertainty quantifications.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_3">（三）11:00-11:30 吴旋（南洋理工大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Robust Sparsification via Sensitivity</h4>
+            <div class="day" onclick="toggleDetails('day7')">Abstract</div>
+            <div id="day7" class="details-content">
+                The existence of outliers presents formidable challenges for many machine learning problems, including
+                clustering, subspace embedding, and low-rank approximation. In this work, we consider robust coresets
+                for all the above machine learning problems, which reduce the input dataset into a small subset, thus
+                providing a scalable and robust solution. We design a general framework to construct a robust coreset
+                for any machine learning problem that admits a bounded total sensitivity and vanilla coreset. Our
+                coreset is near-optimal for subspace embedding. Our experimental results show that our coresets
+                outperform the uniform sampling benchmark on real-world data sets. This is a joint work with Chansophea
+                Wathanak In, Yi Li, and David Woodruff.
+            </div>
+            <div class="day" onclick="toggleDetails('day102')">Bio</div>
+            <div id="day102" class="details-content">
+                <p>
+                    Xuan Wu is a research fellow in Nanyang Technological University, working with Yi Li. He earns his
+                    Ph.D from Johns Hopkins Universitiy, adviced by Vladimir Braverman. Before working in NTU, he has
+                    worked as a full time researcher in Huawei, headed by Pinyan Lu. Xuan Wu's research focuses on
+                    sparsification for machine learning problem, in particular coresets for clustering.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_4">（四）11:30-12:00 姜少峰（北京大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Local Search for Clustering in Almost-linear Time
+            </h4>
+            <div class="day" onclick="toggleDetails('day9')">Abstract</div>
+            <div id="day9" class="details-content">
+                We propose the first local search algorithm for Euclidean clustering that attains an
+                $O(1)$-approximation in almost-linear time. Specifically, for Euclidean k-Means, our algorithm achieves
+                an $O(c)$-approximation in $\tilde{O}(n^{1 + 1 / c})$ time, for any constant $c \ge 1$, maintaining the
+                same running time as the previous (non-local-search-based) approach [la~Tour and Saulpic,
+                arXiv'2407.11217] while improving the approximation factor from $O(c^{6})$ to $O(c)$. The algorithm
+                generalizes to any metric space with sparse spanners, delivering efficient constant approximation in
+                $\ell_p$ metrics, doubling metrics, Jaccard metrics, etc. This generality derives from our main
+                technical contribution: a local search algorithm on general graphs that obtains an $O(1)$-approximation
+                in almost-linear time. We establish this through a new $1$-swap local search framework featuring a novel
+                swap selection rule. At a high level, this rule ``scores'' every possible swap, based on both its
+                modification to the clustering and its improvement to the clustering objective, and then selects those
+                high-scoring swaps. To implement this, we design a new data structure for maintaining approximate
+                nearest neighbors with amortized guarantees tailored to our framework.
+            </div>
+            <div class="day" onclick="toggleDetails('day103')">Bio</div>
+            <div id="day103" class="details-content">
+                <p data-i18n="bio_jiang_shaofeng">
+                    姜少峰博士现任北京大学前沿计算研究中心助理教授，北京大学博雅青年学者。他博士毕业于香港大学，并先后在以色列魏茨曼科学院和芬兰阿尔托大学担任博士后研究员及助理教授。他的研究领域是理论计算机科学，侧重于组合优化问题的大数据算法、近似算法和在线算法。他的多篇研究发表于SICOMP、TALG、STOC、FOCS、SODA等理论计算机科学方向的顶级期刊与会议上。
+                </p>
+            </div>
+
+
+            <h3 data-i18n="day1_afternoon">6 月 14 日 下午</h3>
+            <h4 data-i18n="lect_5">（五）14:00-14:30 段然（清华大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Breaking the Sorting Barrier for Directed
+                Single-Source Shortest Paths</h4>
+            <div class="day" onclick="toggleDetails('day11')">Abstract</div>
+            <div id="day11" class="details-content">
+                We give a deterministic $O(m\log^{2/3}n)$-time algorithm for single-source shortest paths (SSSP) on
+                directed graphs with real non-negative edge weights in the comparison-addition model. This is the first
+                result to break the $O(m+n\log n)$ time bound of Dijkstra's algorithm on sparse graphs, showing that
+                Dijkstra's algorithm is not optimal for SSSP.
+            </div>
+            <div class="day" onclick="toggleDetails('day104')">Bio</div>
+            <div id="day104" class="details-content">
+                <p>
+                    Ran Duan received his B.S. degree in Computer Science at Tsinghua University in 2006, and his M.S.
+                    and Ph.D. degrees in Theoretical Computer Science at University of Michigan, Ann Arbor (under the
+                    instruction of Prof. Seth Pettie). Then he held a postdoctoral researcher position in
+                    Max-Planck-Institut für Informatik in Germany until 2014, supported by Alexander von Humboldt
+                    fellowship. In Aug 2014, he becomes a faculty member in IIIS. His research interest focuses on graph
+                    algorithms, data structures, and computational theory.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_6">（六）14:30-15:00 陈翌佳（上海交通大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Understand uncolored CFI-graphs</h4>
+            <div class="day" onclick="toggleDetails('day13')">Abstract</div>
+            <div id="day13" class="details-content">
+                <p>
+                    The CFI-graphs, named after Cai, Fuerer, and Immerman, are central to the study of the graph
+                    isomorphism testing and of first-order logic with counting. They are often colored graphs, and the
+                    coloring plays a key role in many of their applications. As usual, it is not hard to remove the
+                    coloring by some extra graph gadgets, but at the cost of blowing up the size of the graphs and
+                    changing some key parameters of the graphs as well. This might lead to suboptimal combinatorial
+                    bounds important to their applications. In this talk, I will give a detailed account of the
+                    CFI-graphs, both colored and uncolored, and show they serve the same purposes for most applications.
+                    This is joint work with Joerg Flum and Mingjun Liu.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day105')">Bio</div>
+            <div id="day105" class="details-content">
+                <p data-i18n="bio_chen_yijia">
+                    陈翌佳目前是上海交通大学计算机系教授。他在上海交通大学获得软件与理论专业博士、德国弗莱堡大学数学博士。他的主要研究兴趣为计算机与数学的交叉领域，包括逻辑、算法与计算复杂性。
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_7">（七）15:00-15:30 赵晗（University of Illinois Urbana-Champaign）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Revisiting Scalarization in Multi-Task Learning</h4>
+            <div class="day" onclick="toggleDetails('day15')">Abstract</div>
+            <div id="day15" class="details-content">
+                <p>
+                    Linear scalarization, i.e., combining all loss functions by a weighted sum, has been the default
+                    choice in the literature of multi-task learning (MTL) since its inception. In recent years, there
+                    has been a surge of interest in developing Specialized Multi-Task Optimizers (SMTOs) that treat MTL
+                    as a multi-objective optimization problem. However, it remains open whether there is a fundamental
+                    advantage of SMTOs over scalarization. In this talk, I will revisit scalarization from a theoretical
+                    perspective. I will be focusing on linear MTL models and studying whether scalarization is capable
+                    of fully exploring the Pareto front. Our findings reveal that, in contrast to recent works that
+                    claimed empirical advantages of scalarization, when the model is under-parametrized, scalarization
+                    is inherently incapable of full exploration, especially for those Pareto optimal solutions that
+                    strike the balanced trade-offs between multiple tasks. I will conclude the talk by briefly
+                    discussing the extension of our results to general nonlinear neural networks and our recent work on
+                    using online Chebyshev scalarization to controllably steer the search of Pareto optimal solutions.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day106')">Bio</div>
+            <div id="day106" class="details-content">
+                <p>
+                    Dr. Han Zhao is an Assistant Professor of Computer Science at the University of Illinois
+                    Urbana-Champaign (UIUC). He is also an Amazon Scholar at Amazon AI. Dr. Zhao earned his Ph.D. degree
+                    in machine learning from Carnegie Mellon University. His research interest is centered around
+                    trustworthy machine learning, with a focus on algorithmic fairness, robust generalization and model
+                    interpretability. He has been named a Kavli Fellow of the National Academy of Sciences and has been
+                    selected for the AAAI New Faculty Highlights program. His research has been recognized through a
+                    Google Research Scholar Award, an Amazon Research Award, and a Meta Research Award.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_8">（八）16:30-17:00 梁宵（香港中文大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Simulation-Based Cryptographic Security in a Quantum
+                Era</h4>
+            <div class="day" onclick="toggleDetails('day17')">Abstract</div>
+            <div id="day17" class="details-content">
+                <p>
+                    Quantum computing is progressing rapidly from theoretical exploration to practical realization. From
+                    a cryptographic perspective, the dark side of this "quantum moon" poses potentially catastrophic
+                    challenges to classical security assumptions. A straightforward response to quantum threats is to
+                    replace classical hardness assumptions with quantum-resistant alternatives. While this approach is
+                    sufficient for simple primitives such as standard commitments and encryption schemes, it falls short
+                    in more advanced cryptographic tasks—particularly those whose security is defined via simulation.
+                    Notable examples include zero-knowledge proofs and secure multi-party computation. This talk will
+                    explore the foundational challenges in achieving simulation-based security against quantum
+                    adversaries. The goal is to provide a clear and insightful overview of this rapidly evolving area,
+                    presenting recent technical advances, as well as major open problems that define the current
+                    research frontier.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day107')">Bio</div>
+            <div id="day107" class="details-content">
+                <p>
+                    Xiao Liang's is an Assistant Professor at the Chinese University of Hong Kong. His research
+                    interests lie in Cryptography and its intersections with related fields such as Quantum Computing,
+                    Computational Complexity Theory, and Computer Security. His work has concentrated on theoretical
+                    fundamentals, including Zero-Knowledge Protocols, Secure Multi-Party Computation, Non-Malleability,
+                    and Digital Signatures, as well as their practical applications. His research has been published at
+                    respected conferences (e.g., FOCS, CRYPTO, and ICALP). Prior to his appointment at CUHK, Xiao Liang
+                    served as a postdoctoral fellow at NTT Research, Rice University, and Indiana University
+                    Bloomington. He holds a Ph.D. in Computer Science and an M.Sc. in Applied Mathematics from Stony
+                    Brook University, and a Bachelor of Economics from Beijing Institute of Technology.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_9">（九）17:00-17:30 李元（复旦大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Average-Case Deterministic Query Complexity of
+                Boolean Functions with Fixed Weight</h4>
+            <div class="day" onclick="toggleDetails('day19')">Abstract</div>
+            <div id="day19" class="details-content">
+                <p>
+                    We study the $\textit{average-case deterministic query complexity}$ of boolean functions under a
+                    uniform input distribution, denoted by $\avgq(f)$, the minimum average depth of zero-error decision
+                    trees that compute a boolean function $f$. This measure has found several applications across
+                    diverse fields, yet its understanding is limited. We study boolean functions with fixed weight,
+                    where weight is defined as the number of inputs on which the output is $1$. We prove \(\avgq(f) \le
+                    \max \{ \log \frac{\wt(f)}{\log n} + O(\log \log \frac{\wt(f)}{\log n}), O(1) \}\) for every
+                    $n$-variable boolean function $f$, where $\wt(f)$ denotes the weight. For any $4\log n \le m(n) \le
+                    2^{n-1}$, we prove the upper bound is tight up to an additive logarithmic term for almost all
+                    $n$-variable boolean functions with fixed weight $\wt(f) = m(n)$. H{\aa}stad's switching lemma or
+                    Rossman's switching lemma [Comput. Complexity Conf. 137, 2019] implies $\avgq(f) \leq n(1 -
+                    \frac{1}{O(w)})$ or $\avgq(f) \le n(1 - \frac{1}{O(\log s)})$ for CNF/DNF formulas of width $w$ or
+                    size $s$, respectively. We show there exists a DNF formula of width $w$ and size $\lceil 2^w / w
+                    \rceil$ such that $\avgq(f) = n (1 - \frac{\log n}{\Theta(w)})$ for any $w \ge 2\log n$.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day108')">Bio</div>
+            <div id="day108" class="details-content">
+                <p>
+                    Yuan Li is an assistant professor at Fudan University. Prior to this, he was a software engineer at
+                    Google from 2017 to 2021. He received his BSc in Computer Science from Fudan University in 2011 and
+                    his PhD in Computer Science from the University of Chicago in 2017. His research interests include
+                    computational complexity and coding theory. He has published papers in conferences and journals such
+                    as IEEE Transactions on Information Theory, COCOON, FOCS, SIAM Journal on Computing, Information and
+                    Computation, Theoretical Computer Science, and DCC (Designs, Codes and Cryptography).
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_10">（十）17:30-18:00 陈雪（中国科学技术大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>: Sparse LPN and Refuting random XORs</h4>
+            <div class="day" onclick="toggleDetails('day21')">Abstract</div>
+            <div id="day21" class="details-content">
+                <p>
+                    The sparse LPN problem is closely related to the classical problem of refuting random $k$-CSP and
+                    has been widely used in cryptography as the hardness assumption. Different from the standard LPN
+                    that samples random vectors in $\mathbf{F}_2^n$, it samples random $k$-sparse vectors. Because the
+                    number of $k$-sparse vectors is ${n \choose k}＜n^k$, sparse LPN has learning algorithms in
+                    polynomial time when $m>n^{k/2}$. However, much less is known about learning algorithms for a
+                    constant $k$ like 3 and $m＜n^{k/2}$ samples, except the Gaussian elimination algorithm and
+                    sum-of-squares algorithms. We provide a learning algorithm in $e^{\tilde{O}(\eta \cdot
+                    n^{\frac{\delta+1}{2}})}$ time given $\delta \in (0,1)$ and $m=\max\{1,\frac{\eta \cdot
+                    n^{\frac{\delta+1}{2}}}{k^2}\} \cdot n^{1+(1-\delta)\cdot \frac{k-1}{2}}$ samples. This improves
+                    previous learning algorithms in a wide range of parameters. For example, in the classical setting of
+                    $k=3$ and $m=n^{1.4}$ \citep{FKO06,ABW10}, our algorithm would be faster than previous approaches
+                    for any $\eta＜n^{-0.7}$. Joint work with Wenxuan Shu (USTC) and Zhaienhe Zhou (USTC).
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day109')">Bio</div>
+            <div id="day109" class="details-content">
+                <p>
+                    Xue is a faculty member in USTC. He is broadly interested in theoretical computer science. Specific
+                    areas include big data algorithms, learning theory and foundations of machine learning, complexity
+                    theory, randomized algorithms and pseudorandomness. Previously, I was a postdoc in the theory group
+                    of Northwestern University (in USA) and an assistant professor in George Mason University (in USA).
+                    Prior to that, I obtained my PhD in the University of Texas at Austin, under the supervision of
+                    David Zuckerman, and my bachelor degree from the Yao class of Tsinghua University.
+                </p>
+            </div>
+
+
+            <h3 data-i18n="day2_morning">6 月 15 日 上午</h3>
+            <h4 data-i18n="lect_11">（十一）09:00-09:30 韩恺（上海财经大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:TripleEagle: Simple, Fast and Practical
+                Budget-Feasible Mechanisms for Submodular Valuations</h4>
+            <div class="day" onclick="toggleDetails('day23')">Abstract</div>
+            <div id="day23" class="details-content">
+                <p>
+                    We revisit the classical problem of designing Budget-Feasible Mechanisms (BFMs) for submodular
+                    valuation functions, which has been extensively studied since the seminal paper of Singer [FOCS'10]
+                    due to their wide applications in crowdsourcing and social marketing. We propose
+                    𝖳𝗋𝗂𝗉𝗅𝖾𝖤𝖺𝗀𝗅𝖾, a novel algorithmic framework for designing BFMs, based on which we present
+                    several simple yet effective BFMs that achieve better approximation ratios than the state-of-the-art
+                    work. Moreover, our BFMs are the first in the literature to achieve linear query complexity under
+                    the value oracle model while ensuring obvious strategyproofness, making them more practical than the
+                    previous BFMs. We conduct extensive experiments to evaluate the empirical performance of our BFMs,
+                    and the experimental results demonstrate the superiorities of our approach in terms of efficiency
+                    and effectiveness compared to the state-of-the-art BFMs.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day110')">Bio</div>
+            <div id="day110" class="details-content">
+                <p>
+                    Kai Han is currently a professor at the School of Computing and Artificial Intelligence, Shanghai
+                    University of Finance and Economics (SUFE). Before joining SUFE, he served as a Distinguished
+                    Professor at the School of Computer Science and Technology, Soochow University, and as a professor
+                    at the School of Computer Science and Technology, University of Science and Technology of China. His
+                    research interests include machine learning, big data processing, algorithmic game theory, and
+                    social computing.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_12">（十二）09:30-10:00 冯逸丁（香港科技大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Persuasive Calibration</h4>
+            <div class="day" onclick="toggleDetails('day25')">Abstract</div>
+            <div id="day25" class="details-content">
+                <p>
+                    We introduce and study the persuasive calibration problem, where a principal aims to provide
+                    trustworthy predictions about underlying events to a downstream agent to make desired decisions. We
+                    adopt the standard calibration framework that regulates predictions to be unbiased conditional on
+                    their own value, and thus, they can reliably be interpreted at the face value by the agent. Allowing
+                    a small calibration error budget, we aim to answer the following question: what is and how to
+                    compute the optimal predictor under this calibration error budget, especially when there exists
+                    incentive misalignment between the principal and the agent? We focus on standard $\ell_t$-norm
+                    Expected Calibration Error (ECE) metric. We develop a general framework by viewing predictors as
+                    post-processed versions of perfectly calibrated predictors. Using this framework, we first
+                    characterize the structure of the optimal predictor. Specifically, when the principal's utility is
+                    event-independent and for $\ell_1$-norm ECE, we show: (1) the optimal predictor is over-(resp.
+                    under-) confident for high (resp. low) true expected outcomes, while remaining perfectly calibrated
+                    in the middle; (2) the miscalibrated predictions exhibit a collinearity structure with the
+                    principal's utility function. On the algorithmic side, we provide a FPTAS for computing
+                    approximately optimal predictor for general principal utility and general $\ell_t$-norm ECE.
+                    Moreover, for the $\ell_1$ and $\ell_\infty$-norm ECE, we provide polynomial-time algorithms that
+                    compute the exact optimal predictor.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day111')">Bio</div>
+            <div id="day111" class="details-content">
+                <p>
+                    Yiding Feng is an assistant professor at HKUST IEDA. Previously, he worked as a principal researcher
+                    at the University of Chicago Booth School of Business, and a postdoctoral researcher at Microsoft
+                    Research New England. He received his Ph.D. from the Department of Computer Science at Northwestern
+                    University in 2021, and his BS degree from ACM Honors Class at Shanghai Jiao Tong University in
+                    2016. His research focuses on operations research, economics & computation, and theoretical computer
+                    science. He was the recipient of the INFORMS Auctions and Market Design (AMD) Michael H. Rothkopf
+                    Junior Researcher Paper Prize (second place), and the APORS Young Researcher Best Paper Award.
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_13">（十三）11:00-11:30 李帅（上海交通大学）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Optimal Algorithm for Max-Min Fair Bandit</h4>
+            <div class="day" onclick="toggleDetails('day27')">Abstract</div>
+            <div id="day27" class="details-content">
+                <p>
+                    Multi-player multi-armed bandit (MP-MAB) has been widely studied owing to its diverse applications
+                    across numerous domains. We consider an MP-MAB problem where $N$ players compete for $K$ arms in $T$
+                    rounds. The reward distributions are heterogeneous where each player has a different expected reward
+                    for the same arm. When multiple players select the same arm, they collide and obtain zero rewards.
+                    In this paper, our target is to find the max-min fairness matching that maximizes the reward of the
+                    player who receives the lowest reward. This paper improves the existing max-min regret upper bound
+                    of $O(\exp(1/\Delta) + K^3 \log T\log \log T)$. More specifically, our decentralized fair
+                    elimination algorithm (DFE) deals with heterogeneity and collision carefully and attains a regret
+                    upper bound of $O((N^2+K)\log T / \Delta)$, where $\Delta$ is the minimum reward gap between max-min
+                    value and sub-optimal arms. In addition, this paper also provides an $\Omega(\max\{N^2, K\} \log T /
+                    \Delta)$ regret lower bound for this problem, which indicates that our algorithm is optimal with
+                    respect to key parameters $T, N, K$, and $\Delta$. Additional numerical experiments also show the
+                    efficiency and improvement of our algorithms. This work is accepted in ICML 2025.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day112')">Bio</div>
+            <div id="day112" class="details-content">
+                <p data-i18n="bio_li_shuai">
+                    李帅副教授研究可自主决策适应动态环境的强化学习理论与方法，任上海交通大学约翰·霍普克罗夫特计算机科学中心副主任，迄今共发表学术论文90+篇，包含上海交通大学首篇机器学习理论顶会COLT论文等，其中第一/通讯作者发表CCF-A类论文40+篇，10余项理论提升成果仍保持理论最优。她担任机器学习顶会ICML、NeurIPS、UAI、ACL、IJCAI、AAMAS的领域主席（Area
+                    Chair）与高级程序委员会委员（SPC），受邀于群体智能顶级会议AAMAS上给出多智能体在线学习与马尔可夫博弈理论基础的教程（连续两年）和IJCAI上给出多智能体在线学习的教程，主持国自然面上基金、青年基金，参与国自然重大研究计划、科技部2030新一代人工智能重大项目。她曾获得AAAI-IAAI
+                    Deployed Application Award、上海市扬帆人才计划、上海徐汇光启人才、谷歌博士奖学金、香港政府外展合作奖、华为火花奖、国际SAT竞赛并行求解赛道铜牌、腾讯优秀导师奖等。
+                </p>
+            </div>
+
+            <h4 data-i18n="lect_14">（十四）11:30-12:00 金耀楠（华为）</h4>
+            <h4 style="font-weight: normal;"><strong>Title</strong>:Tight regret bounds for fixed price bilateral trade
+            </h4>
+            <div class="day" onclick="toggleDetails('day28')">Abstract</div>
+            <div id="day28" class="details-content">
+                <p>
+                    We examine fixed-price mechanisms in bilateral trade through the lens of regret minimization. Our
+                    main results are twofold. (i) For independent values, a near-optimal $\widetilde{\Theta}(T^{2/3})$
+                    tight bound for Global Budget Balance fixed-price mechanisms with two-bit/one-bit feedback. (ii) For
+                    correlated/adversarial values, a near-optimal $\Omega(T^{3/4})$ lower bound for Global Budget
+                    Balance fixed-price mechanisms with two-bit/one-bit feedback, which improves the best known
+                    $\Omega(T^{5/7})$ lower bound obtained in the work BCCF24 and, up to polylogarithmic factors,
+                    matches the $\widetilde{\mathcal{O}}(T^{3 / 4})$ upper bound obtained in the same work. Our work in
+                    combination with the previous works CCCFL24mor, CCCFL24jmlr, AFF24, BCCF24 (essentially) gives a
+                    thorough understanding of regret minimization for fixed-price bilateral trade. En route, we have
+                    developed two technical ingredients that might be of independent interest: (i) A novel algorithmic
+                    paradigm, called fractal elimination, to address one-bit feedback and independent values. (ii) A new
+                    lower-bound construction with novel proof techniques, to address the Global Budget Balance
+                    constraint and correlated values.
+                </p>
+            </div>
+            <div class="day" onclick="toggleDetails('day113')">Bio</div>
+            <div id="day113" class="details-content">
+                <p>
+                    Yaonan Jin is a full-time researcher at the Huawei TCS Lab (lead by Pinyan Lu). His research
+                    interests encompass Theoretical Computer Science, with an emphasis on Algorithmic Economics. Before
+                    joining Huawei, he obtained his PhD from Columbia University in 2023 (advised by Xi Chen and Rocco
+                    Servedio). Before that, he obtained his MPhil from Hong Kong University of Science and Technology in
+                    2019 (advised by Qi Qi) and his BEng from Shanghai Jiao Tong University in 2017.
+                </p>
+            </div>
+        </div>
+
+        <div class="organization" id="organization">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_organization">组织机构</h2>
+            <p data-i18n="host_unit">
+                主办单位：理论计算机科学研究中心（ITCS）
+            </p>
+            <p data-i18n="co_host_unit">
+                协办单位：计算经济交叉科学教育部重点实验室、计算机与人工智能智学院
+            </p>
+            <p data-i18n="contact_email">
+                联系邮箱:liang.huili@mail.shufe.edu.cn
+            </p>
+        </div>
+        <div style="height: 30px;"></div>
+    </div>
+</body>
+
+</html>
