@@ -33,6 +33,162 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Anniversary photo carousel
+    const marquee = document.querySelector('.photo-marquee');
+    const marqueeTrack = document.querySelector('.photo-marquee-track');
+    const marqueePrev = document.querySelector('.photo-nav-prev');
+    const marqueeNext = document.querySelector('.photo-nav-next');
+    const lightbox = document.getElementById('photoLightbox');
+    const lightboxImage = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxCaption = lightbox ? lightbox.querySelector('figcaption') : null;
+    const lightboxClose = lightbox ? lightbox.querySelector('.photo-lightbox-close') : null;
+    let pausePhotoCarousel = () => { };
+    let resumePhotoCarousel = () => { };
+
+    if (marquee && marqueeTrack) {
+        const originalSlides = Array.from(marqueeTrack.querySelectorAll('figure:not([aria-hidden="true"])'));
+        let photoIndex = 0;
+        let photoTimer = null;
+        const transitionMs = 850;
+        const pauseMs = 2600;
+
+        originalSlides.forEach((figure) => {
+            figure.tabIndex = 0;
+            figure.setAttribute('role', 'button');
+            figure.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openPhotoLightbox(figure);
+                }
+            });
+        });
+
+        function slideStep() {
+            const firstSlide = marqueeTrack.querySelector('figure');
+            if (!firstSlide || originalSlides.length === 0) return 0;
+            const gap = parseFloat(getComputedStyle(marqueeTrack).gap) || 0;
+            return firstSlide.getBoundingClientRect().width + gap;
+        }
+
+        function goToPhoto(index, animate = true) {
+            marqueeTrack.style.transition = animate ? `transform ${transitionMs}ms ease` : 'none';
+            marqueeTrack.style.transform = `translateX(${-index * slideStep()}px)`;
+        }
+
+        function movePhoto(direction) {
+            if (direction < 0 && photoIndex === 0) {
+                photoIndex = originalSlides.length;
+                goToPhoto(photoIndex, false);
+                marqueeTrack.offsetHeight;
+            }
+
+            photoIndex += direction;
+            goToPhoto(photoIndex);
+
+            if (photoIndex === originalSlides.length) {
+                setTimeout(() => {
+                    photoIndex = 0;
+                    goToPhoto(photoIndex, false);
+                }, transitionMs);
+            }
+        }
+
+        pausePhotoCarousel = function () {
+            clearTimeout(photoTimer);
+        };
+
+        function scheduleNextPhoto() {
+            clearTimeout(photoTimer);
+            photoTimer = setTimeout(() => {
+                movePhoto(1);
+                scheduleNextPhoto();
+            }, pauseMs);
+        }
+
+        resumePhotoCarousel = scheduleNextPhoto;
+
+        function movePhotoManually(direction) {
+            pausePhotoCarousel();
+            movePhoto(direction);
+            scheduleNextPhoto();
+        }
+
+        marqueeTrack.addEventListener('click', (event) => {
+            const figure = event.target.closest('figure');
+            if (figure) openPhotoLightbox(figure);
+        });
+
+        if (marqueePrev) {
+            marqueePrev.addEventListener('click', () => movePhotoManually(-1));
+        }
+
+        if (marqueeNext) {
+            marqueeNext.addEventListener('click', () => movePhotoManually(1));
+        }
+
+        window.addEventListener('resize', () => goToPhoto(photoIndex, false));
+        scheduleNextPhoto();
+    }
+
+    function openPhotoLightbox(figure) {
+        if (!lightbox || !lightboxImage || !lightboxCaption) return;
+        const image = figure.querySelector('img');
+        const caption = figure.querySelector('figcaption');
+        if (!image) return;
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || caption?.textContent.trim() || 'ITCS workshop group photo';
+        lightboxCaption.textContent = caption?.textContent.trim() || '';
+        lightbox.classList.add('show');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+        pausePhotoCarousel();
+        if (lightboxClose) lightboxClose.focus();
+    }
+
+    function closePhotoLightbox() {
+        if (!lightbox || !lightboxImage) return;
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+        lightboxImage.src = '';
+        resumePhotoCarousel();
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox || event.target === lightboxClose) {
+                closePhotoLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('show')) {
+                closePhotoLightbox();
+            }
+        });
+    }
+
+    // Speaker cards collapse by default; click a card to reveal details.
+    const speakerCards = document.querySelectorAll('.speaker-card');
+    speakerCards.forEach((card) => {
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-expanded', 'false');
+        card.addEventListener('click', () => toggleSpeakerCard(card));
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleSpeakerCard(card);
+            }
+        });
+    });
+
+    function toggleSpeakerCard(card) {
+        const isExpanded = card.classList.toggle('expanded');
+        card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    }
+
     // Days Toggle Logic
     const days = document.querySelectorAll('.day');
     days.forEach(day => {
@@ -166,7 +322,9 @@ const translations = {
         'nav_contact': 'Contact & Directions',
         'nav_background': 'Background',
         'nav_schedule': 'Schedule',
-        'nav_speakers': 'Speakers',
+        'nav_speakers': 'Speaker',
+        'nav_register': 'Register',
+        'nav_poster': 'Poster',
         'nav_org': 'Organization',
         'home_itcs_intro_title': 'About ITCS',
         'home_itcs_intro_content': 'The Institute for Theoretical Computer Science (ITCS) is an academic unit at the Shanghai University of Finance and Economics (SUFE) with the goal of creating a world-class environment for diverse research in theoretical computer science. Shanghai University of Finance and Economics is a top-ranked research university specializing in the areas of economics, finance, and business. In recent years, SUFE has been continuously expanding into fundamental disciplines related to finance and economics, among which computer science and ITCS is one of the university’s top priorities. Founded in 2016, ITCS is now celebrating its 10th anniversary.',
@@ -193,14 +351,15 @@ const translations = {
         'contact_email': 'Contact Email: liang.huili@mail.shufe.edu.cn',
         'section_background': 'Background',
         'background_content': 'On June 18, 2016, the Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance and Economics was officially established, and it has now been ten years. On the occasion of this 10th anniversary celebration, the center is holding a theoretical computer science symposium, inviting friends old and new to gather and exchange ideas, and to celebrate ITCS\'s tenth birthday together!',
-        'event_date': '📅 Date: June 14-15, 2026',
-        'event_location': '📍 Location: Room 102, West Side of No.3 Teaching Building, Wudong Road Campus, Shanghai University of Finance and Economics',
-        'schedule_title': 'Schedule (June 14-15, 2026)',
-        'day1_label': 'June 14 Morning',
+        'event_date': '📅 Date: June 19-21, 2026',
+        'event_location': '📍 Location: First Floor, Research Laboratory Building, Wudong Road Campus, Shanghai University of Finance and Economics, Yangpu District, Shanghai',
+        'schedule_title': 'Schedule (June 19-21, 2026)',
+        'day1_label': 'June 19 Morning',
         'table_time': 'Time',
         'table_speaker': 'Speaker',
         'table_topic': 'Topic',
         'table_host': 'Host',
+        'schedule_tbd': 'TBD',
         'speaker_zhang_yuhao': 'Yuhao Zhang',
         'host_fu_hu': 'Hu Fu',
         'speaker_he_lie': 'Lie He',
@@ -210,7 +369,7 @@ const translations = {
         'speaker_jiang_shaofeng': 'Shaofeng Jiang',
         'lunch': 'Lunch',
         'staff_canteen': 'Staff Canteen',
-        'day2_label': 'June 14 Afternoon',
+        'day2_label': 'June 19 Afternoon',
         'speaker_duan_ran': 'Ran Duan',
         'host_tang_zhihao': 'Zhihao Tang',
         'speaker_chen_yijia': 'Yijia Chen',
@@ -221,14 +380,21 @@ const translations = {
         'speaker_li_yuan': 'Yuan Li',
         'speaker_chen_xue': 'Xue Chen',
         'dinner': 'Dinner',
-        'day3_label': 'June 15 Morning',
+        'day3_label': 'June 20 Morning',
         'speaker_han_kai': 'Kai Han',
         'host_guo_zichao': 'Zichao Guo',
         'speaker_feng_yiding': 'Yiding Feng',
         'speaker_li_shuai': 'Shuai Li',
         'host_xu_renzhe': 'Renzhe Xu',
         'speaker_jin_yaonan': 'Yaonan Jin',
-        'section_speakers': 'Speakers',
+        'section_speakers': 'Speaker',
+        'label_title': 'Title',
+        'label_abstract': 'Abstract',
+        'label_bio': 'Bio',
+        'research_building_caption': 'Research Laboratory Building',
+        'hotel_caption': 'Conference Hotel',
+        'section_register': 'Register',
+        'section_poster': 'Poster',
         'day1_morning': 'June 14 Morning',
         'lect_1': '(1) 09:10-09:40 Yuhao Zhang (Shanghai Jiao Tong University)',
         'lect_2': '(2) 09:40-10:10 Lie He (Shanghai University of Finance and Economics)',
@@ -250,9 +416,9 @@ const translations = {
         'bio_li_shuai': 'Associate Professor Shuai Li studies reinforcement learning theory and methods for autonomous decision-making in dynamic environments. He serves as the Deputy Director of the John Hopcroft Center for Computer Science at Shanghai Jiao Tong University. He has published over 90 academic papers, including SJTU\'s first COLT paper. He has served as Area Chair and SPC for top conferences like ICML, NeurIPS, UAI, ACL, IJCAI, and AAMAS. He has given tutorials on multi-agent online learning and foundations of Markov games at AAMAS (consecutive years) and IJCAI. He holds grants from the National Natural Science Foundation of China and Ministry of Science and Technology 2030 AI Project. He has received awards including AAAI-IAAI Deployed Application Award, Shanghai Yangfan Talent Plan, Shanghai Xuhui Guangqi Talent, Google PhD Fellowship, HK Government Outreach Award, Huawei Spark Award, SAT Competition Bronze Medal, and Tencent Excellent Mentor Award.',
         'lect_14': '(14) 11:30-12:00 Yaonan Jin (Huawei)',
         'section_organization': 'Organization',
-        'host_unit': 'Host: Institute for Theoretical Computer Science (ITCS)',
-        'co_host_unit': 'Co-organizers: Key Laboratory of Interdisciplinary Sciences in Economics and Mathematics (Ministry of Education), School of Computing and Artificial Intelligence',
-        'contact_email': 'Contact Email: liang.huili@mail.shufe.edu.cn'
+        'host_unit': 'Organizer: Institute for Theoretical Computer Science (ITCS), Shanghai University of Finance and Economics',
+        'co_host_unit': 'Co-organizer: Key Laboratory of Interdisciplinary Sciences in Economics and Mathematics (Ministry of Education)',
+        'contact_email': 'Contact: liang.huili@sufe.edu.cn'
     },
     'zh': {
         'nav_home': '首页',
@@ -266,6 +432,8 @@ const translations = {
         'nav_background': '活动背景',
         'nav_schedule': '日程安排',
         'nav_speakers': '主讲嘉宾',
+        'nav_register': '注册报名',
+        'nav_poster': '墙报',
         'nav_org': '组织机构',
         'home_itcs_intro_title': '关于 ITCS',
         'home_itcs_intro_content': '上海财经大学理论计算机科学研究中心（ITCS）是上海财经大学新成立的学术单位，旨在为理论计算机科学的多样化研究创造世界一流的环境。上海财经大学是一所顶尖的研究型大学，专注于经济、金融和商业领域。近年来，上海财大不断向与财经相关的基础学科拓展，其中计算机科学和ITCS是学校的重点建设方向之一。ITCS成立于2016年，目前正值十周年校庆。',
@@ -292,14 +460,15 @@ const translations = {
         'contact_email': '联系邮箱:liang.huili@mail.shufe.edu.cn',
         'section_background': '活动背景',
         'background_content': '2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来十周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的十岁生日！',
-        'event_date': '📅 活动时间：2026年6月14日-15日',
-        'event_location': '📍 活动地点：上海财经大学武东路校区第三教学楼西侧102会议室',
-        'schedule_title': '日程安排 (2026 年 6 月 14 - 15 日)',
-        'day1_label': '6 月 14 日上午',
+        'event_date': '📅 活动时间：2026年6月19日-21日',
+        'event_location': '📍 活动地点：上海财经大学武东路校区科研实验大楼一楼（上海市杨浦区）',
+        'schedule_title': '日程安排 (2026 年 6 月 19 - 21 日)',
+        'day1_label': '6 月 19 日上午',
         'table_time': '时间',
         'table_speaker': '报告人',
         'table_topic': '报告内容',
         'table_host': '主持人',
+        'schedule_tbd': '待定',
         'speaker_zhang_yuhao': '张宇昊',
         'host_fu_hu': '伏虎',
         'speaker_he_lie': '贺烈',
@@ -309,7 +478,7 @@ const translations = {
         'speaker_jiang_shaofeng': '姜少峰',
         'lunch': '午餐',
         'staff_canteen': '教工食堂',
-        'day2_label': '6 月 14 日下午',
+        'day2_label': '6 月 19 日下午',
         'speaker_duan_ran': '段然',
         'host_tang_zhihao': '唐志皓',
         'speaker_chen_yijia': '陈翌佳',
@@ -320,7 +489,7 @@ const translations = {
         'speaker_li_yuan': '李元',
         'speaker_chen_xue': '陈雪',
         'dinner': '晚餐',
-        'day3_label': '6 月 15 日上午',
+        'day3_label': '6 月 20 日上午',
         'speaker_han_kai': '韩恺',
         'host_guo_zichao': '郭子超',
         'speaker_feng_yiding': '冯逸丁',
@@ -328,6 +497,13 @@ const translations = {
         'host_xu_renzhe': '徐韧喆',
         'speaker_jin_yaonan': '金耀楠',
         'section_speakers': '主讲嘉宾',
+        'label_title': '报告题目',
+        'label_abstract': '摘要',
+        'label_bio': '个人简介',
+        'research_building_caption': '科研实验大楼',
+        'hotel_caption': '会议酒店',
+        'section_register': '注册报名',
+        'section_poster': '墙报',
         'day1_morning': '6 月 14 日 上午',
         'lect_1': '（一）09:10-09:40 张宇昊（上海交通大学）',
         'lect_2': '（二）09:40-10:10 贺烈（上海财经大学）',
@@ -349,9 +525,9 @@ const translations = {
         'bio_li_shuai': '李帅副教授研究可自主决策适应动态环境的强化学习理论与方法，任上海交通大学约翰·霍普克罗夫特计算机科学中心副主任，迄今共发表学术论文90+篇，包含上海交通大学首篇机器学习理论顶会COLT论文等，其中第一/通讯作者发表CCF-A类论文40+篇，10余项理论提升成果仍保持理论最优。她担任机器学习顶会ICML、NeurIPS、UAI、ACL、IJCAI、AAMAS的领域主席（Area Chair）与高级程序委员会委员（SPC），受邀于群体智能顶级会议AAMAS上给出多智能体在线学习与马尔可夫博弈理论基础的教程（连续两年）和IJCAI上给出多智能体在线学习的教程，主持国自然面上基金、青年基金，参与国自然重大研究计划、科技部2030新一代人工智能重大项目。她曾获得AAAI-IAAI Deployed Application Award、上海市扬帆人才计划、上海徐汇光启人才、谷歌博士奖学金、香港政府外展合作奖、华为火花奖、国际SAT竞赛并行求解赛道铜牌、腾讯优秀导师奖等。',
         'lect_14': '（十四）11:30-12:00 金耀楠（华为）',
         'section_organization': '组织机构',
-        'host_unit': '主办单位：理论计算机科学研究中心（ITCS）',
-        'co_host_unit': '协办单位：计算经济交叉科学教育部重点实验室、计算机与人工智能智学院',
-        'contact_email': '联系邮箱:liang.huili@mail.shufe.edu.cn'
+        'host_unit': '承办单位：上海财经大学理论计算机科学研究中心（ITCS）',
+        'co_host_unit': '承办单位：计算经济交叉科学教育部重点实验室',
+        'contact_email': '联系邮箱：liang.huili@sufe.edu.cn'
     }
 };
 

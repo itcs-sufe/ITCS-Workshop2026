@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITCS - Institute for Theoretical Computer Science</title>
+    <title>ITCS 10th Anniversary Workshop</title>
     <script>
         MathJax = {
             tex: {
@@ -23,6 +23,8 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
         </script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/icons/favicon.png">
+    <link rel="apple-touch-icon" href="img/icons/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,7 +36,7 @@
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="nav-logo">ITCS <span class="nav-logo-sub">10th</span></a>
+            <a href="#home" class="nav-logo">ITCS <span class="nav-logo-sub"><span class="anniv-number">10</span><span class="anniv-suffix">th</span></span></a>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -42,113 +44,345 @@
             </div>
             <ul class="nav-menu" id="navMenu">
 
-                <li class="nav-item-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle highlighted" data-i18n="nav_programs_events">Programs &
-                        Events</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="workshop.html" class="dropdown-item" data-i18n="nav_workshop">10th Anniversary
-                                Workshop</a></li>
-                    </ul>
-                </li>
-                <li><a href="#about" class="nav-link" data-i18n="nav_about">About ITCS</a></li>
-                <li><a href="#research" class="nav-link" data-i18n="nav_research">Research</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="#background" class="nav-link" data-i18n="nav_background">活动背景</a></li>
+                <li><a href="#schedule" class="nav-link" data-i18n="nav_schedule">日程安排</a></li>
+                <li><a href="#speaker" class="nav-link" data-i18n="nav_speakers">主讲嘉宾</a></li>
+                <li><a href="#register" class="nav-link" data-i18n="nav_register">注册报名</a></li>
+                <li><a href="#poster" class="nav-link" data-i18n="nav_poster">墙报</a></li>
+                <li><a href="#organization" class="nav-link" data-i18n="nav_org">组织机构</a></li>
                 <li><button id="lang-toggle" class="lang-btn">EN/中</button></li>
             </ul>
         </div>
     </nav>
     <header class="main-header">
-        <h1 id="home">ITCS</h1>
-        <div class="subtitle">10th Anniversary Celebration</div>
+        <h1 id="home">ITCS Workshop</h1>
+        <div class="subtitle"><span class="anniv-number">10</span><span class="anniv-suffix">th</span> Anniversary Celebration</div>
+        <div class="photo-marquee" aria-label="ITCS workshop group photos from 2025 to 2016">
+            <button class="photo-nav photo-nav-prev" type="button" aria-label="Previous photo">‹</button>
+            <div class="photo-marquee-track">
+                <figure><img src="img/workshop-photos/web/2025-itcs-workshop.jpg" alt="ITCS Workshop 2025 group photo"><figcaption>2025</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2025-hcp.jpg" alt="HCP 2025 group photo"><figcaption>2025</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2024-itcs-wide.jpg" alt="ITCS 2024 group photo"><figcaption>2024</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2024-itcs.jpg" alt="ITCS 2024 group photo"><figcaption>2024</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2023-itcs.jpg" alt="ITCS 2023 group photo"><figcaption>2023</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2022-itcs.jpg" alt="ITCS 2022 group photo"><figcaption>2022</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2021-itcs-workshop.jpg" alt="ITCS Workshop 2021 group photo"><figcaption>2021</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2021-itcs.jpg" alt="ITCS 2021 group photo"><figcaption>2021</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2020-itcs.jpg" alt="ITCS 2020 group photo"><figcaption>2020</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2019-itcs-1.jpg" alt="ITCS 2019 group photo"><figcaption>2019</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2019-itcs-2.jpg" alt="ITCS 2019 group photo"><figcaption>2019</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2019-isaac.jpg" alt="ISAAC 2019 group photo"><figcaption>2019</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2018-itcs.jpg" alt="ITCS 2018 group photo"><figcaption>2018</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2018-ntcs.jpg" alt="NTCS 2018 group photo"><figcaption>2018</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2017-ctw.jpg" alt="CTW 2017 group photo"><figcaption>2017</figcaption></figure>
+                <figure><img src="img/workshop-photos/web/2016-itcs.jpg" alt="ITCS 2016 group photo"><figcaption>2016</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2025-itcs-workshop.jpg" alt=""><figcaption>2025</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2025-hcp.jpg" alt=""><figcaption>2025</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2024-itcs-wide.jpg" alt=""><figcaption>2024</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2024-itcs.jpg" alt=""><figcaption>2024</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2023-itcs.jpg" alt=""><figcaption>2023</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2022-itcs.jpg" alt=""><figcaption>2022</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2021-itcs-workshop.jpg" alt=""><figcaption>2021</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2021-itcs.jpg" alt=""><figcaption>2021</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2020-itcs.jpg" alt=""><figcaption>2020</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2019-itcs-1.jpg" alt=""><figcaption>2019</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2019-itcs-2.jpg" alt=""><figcaption>2019</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2019-isaac.jpg" alt=""><figcaption>2019</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2018-itcs.jpg" alt=""><figcaption>2018</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2018-ntcs.jpg" alt=""><figcaption>2018</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2017-ctw.jpg" alt=""><figcaption>2017</figcaption></figure>
+                <figure aria-hidden="true"><img src="img/workshop-photos/web/2016-itcs.jpg" alt=""><figcaption>2016</figcaption></figure>
+            </div>
+            <button class="photo-nav photo-nav-next" type="button" aria-label="Next photo">›</button>
+        </div>
     </header>
-
-    <div class="content" id="about">
-
-        <h2 data-i18n="home_itcs_intro_title">About ITCS</h2>
-        <p data-i18n="home_itcs_intro_content">
-            The Institute for Theoretical Computer Science (ITCS) is an academic unit at the Shanghai University of
-            Finance and Economics (SUFE) with the goal of creating a world-class environment for diverse research in
-            theoretical computer science. Shanghai University of Finance and Economics is a top-ranked research
-            university specializing in the areas of economics, finance, and business. In recent years, SUFE has been
-            continuously expanding into fundamental disciplines related to finance and economics, among which computer
-            science and ITCS is one of the university’s top priorities. Founded in 2016, ITCS is now celebrating its
-            10th anniversary.
-        </p>
-        <p data-i18n="home_anniversary_intro_content">
-            On June 18, 2016, the Institute for Theoretical Computer Science (ITCS) at Shanghai University of Finance
-            and Economics was officially established. In 2026, we welcome the center's 10th anniversary. To celebrate
-            this important moment, we will hold a series of academic activities and seminars to review past achievements
-            and look forward to future development.
-        </p>
-
+    <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+        <button class="photo-lightbox-close" type="button" aria-label="Close image viewer">×</button>
+        <figure>
+            <img src="" alt="">
+            <figcaption></figcaption>
+        </figure>
     </div>
-
-    <div class="content" id="research">
-        <h2 data-i18n="section_research">Research</h2>
-        <p data-i18n="research_content_1">
-            Research at ITCS span core problems in theoretical computer science and interdisciplinary topics through the
-            lenses of theoretical computer science. Our work on fundamental problems in algorithms and complexity
-            include classification of computational tasks through dichotomy theorems, as well as design and analysis of
-            approximation algorithms.
+    <div class="content">
+        <section id="background">
+        <div style="height: 50px;"></div>
+        <h2 data-i18n="section_background">活动背景</h2>
+        <p data-i18n="background_content">
+            2016年6月18日，上海财经大学理论计算机科学研究中心 (ITCS) 正式成立，转眼已迎来十周年。值此周年庆典之际，中心特举办理论计算机学术研讨会，诚邀各位新老朋友相聚交流，共同庆祝ITCS的十岁生日！
         </p>
-        <p data-i18n="research_content_2">
-            In social sciences and Economics, our work spans a variety of topics in mechanism design and areas of
-            computational game theory. In natural sciences, our work on computational physics concerns theoretical
-            analysis of phase transition in complex networks. Our research contributes to the areas of machine learning,
-            information theory, and operations research and is directly related to practical problems in engineering and
-            information technology.
-        </p>
-
-    </div>
-
-
-
-    <div class="content" id="contact">
-        <h2 data-i18n="section_contact_directions">Contact & Directions</h2>
-
-        <h3 data-i18n="address_title">Address</h3>
-        <p data-i18n="address_details" style="line-height: 1.8;">
-            Institute for Theoretical Computer Science<br>
-            School of Information Management & Engineering<br>
-            Shanghai University of Finance & Economics<br>
-            No.100 Wudong Road, Yangpu District, Shanghai 200433, China<br>
-            Telephone: 86-21-65901160<br>
-            Email: itcs(AT)mail.shufe.edu.cn
+        <!-- <div class="image-slider">
+            <div class="slider-container">
+                <img src="img/bg1.png" alt="Conference Image 1">
+                <img src="img/bg2.png" alt="Conference Image 2">
+                <img src="img/bg3.png" alt="Conference Image 3">
+            </div>
+        </div> -->
+        <p>
+            <span data-i18n="event_date">📅 活动时间：2026年6月19日-21日</span><br>
+            <span data-i18n="event_location">📍 活动地点：上海财经大学武东路校区科研实验大楼一楼（上海市杨浦区）</span><br>
         </p>
 
-        <h3 data-i18n="directions_title">Directions to Wudong Campus, SUFE</h3>
+        <div class="venue-gallery" aria-label="Venue and hotel photos">
+            <figure>
+                <img src="img/research-building.png" alt="科研实验大楼">
+                <figcaption data-i18n="research_building_caption">科研实验大楼</figcaption>
+            </figure>
+            <figure>
+                <img src="img/hotel.png" alt="会议酒店">
+                <figcaption data-i18n="hotel_caption">会议酒店</figcaption>
+            </figure>
+        </div>
+        </section>
 
-        <h4 data-i18n="directions_pudong_title">Directions from Pudong Airport:</h4>
-        <p data-i18n="directions_pudong_content">
-            Please take Airport Express Line 4, transfer to Bus 99/749/713 at Wu Jiao Chang Station, and then get off at
-            Wuchuan Road, Wudong Road Station. Then walk to Wudong Road Campus.
-        </p>
+        <div class="schedule" id="schedule">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="schedule_title">日程安排 (2026 年 6 月 19 - 21 日)</h2>
+            <div class="day" data-target="day1" onclick="toggleDetails('day1')"><span data-i18n="day1_label">6 月 19 日上午</span></div>
+            <div id="day1" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                    </tr>
+                </table>
+            </div>
 
-        <h4 data-i18n="directions_hongqiao_title">Directions from Hongqiao Airport/Hongqiao Railway Station:</h4>
-        <p data-i18n="directions_hongqiao_content">
-            Please take Metro Line 10, transfer to Bus 819 at Jiangwan Stadium Station, and then get off at Wuchuan
-            Road, Zhengli Road Station. Then walk to Wudong Road Campus.
-        </p>
+            <div class="day" data-target="day2" onclick="toggleDetails('day2')"><span data-i18n="day2_label">6 月 19 日下午</span></div>
+            <div id="day2" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                    </tr>
+                </table>
+            </div>
 
-        <h4 data-i18n="directions_railway_title">Directions from Shanghai Railway Station:</h4>
-        <p data-i18n="directions_railway_content">
-            Please take Metro Line 3, and get off at Jiangwan Town Station, then you can take a taxi to Wudong Road
-            Campus.
-        </p>
+            <div class="day" data-target="day3" onclick="toggleDetails('day3')"><span data-i18n="day3_label">6 月 20 日上午</span></div>
+            <div id="day3" class="details-content show">
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <th data-i18n="table_time">时间</th>
+                        <th data-i18n="table_speaker">报告人</th>
+                        <th data-i18n="table_topic">报告内容</th>
+                        <th data-i18n="table_host">主持人</th>
+                    </tr>
+                    <tr>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                        <td data-i18n="schedule_tbd">待定</td>
+                    </tr>
+                </table>
+            </div>
 
-
-
-        <div class="organization" id="organization">
-            <h2 data-i18n="section_organization">Organization</h2>
-            <p data-i18n="host_unit">
-                Host: Institute for Theoretical Computer Science (ITCS)
-            </p>
-            <p data-i18n="co_host_unit">
-                Co-organizers: Key Laboratory of Interdisciplinary Sciences in Economics and Mathematics (Ministry of
-                Education), School of Computing and Artificial Intelligence
-            </p>
         </div>
 
+        <div class="speaker" id="speaker">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_speakers">主讲嘉宾</h2>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">丁虎</span><span class="lang-en">Hu Ding</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">中国科学技术大学</span><span class="lang-en">University of Science and Technology of China</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: <span class="lang-zh">关于Gromov-Wasserstein 问题的最新进展</span><span class="lang-en">Recent Progress on the Gromov-Wasserstein Problem</span></p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p class="lang-zh">Gromov-Wasserstein (GW) 问题是一种衡量两个“结构化空间”之间差异的重要数学工具。它与普通的距离计算（比如最优传输距离）不同，它的核心在于：即使两个物体不在同一个空间、没有共同的坐标系，也能通过比较它们的“内部结构”来找到它们之间的相似性。近年来，GW距离被广泛用于多模态模型对齐、图神经网络、计算机图形学、生物信息等重要领域。本报告介绍了我们在GW距离计算领域的最新进展，旨在解决其在大规模应用中的计算瓶颈与在现实噪声环境中的脆弱性。首先，针对 O(nˆ3）的计算复杂度，我们提出了 LoBCD-GW (Gromov-Wasserstein Distance via Localized Block Coordinate Descent) 算法，通过挖掘更新过程中的“数据依赖稀疏性”，将复杂度降至 O(rˆ3），其中r为衡量数据稀疏性并远小于n的参数，实现了百倍级的加速。其次，针对结构噪声（如伪边），我们提出了 SRGW (Structurally Robust Gromov Wasserstein Distance) 框架，通过创新的“双掩码”机制，精准过滤局部几何畸变而不破坏全局结构完整性。两项工作近期发表在ICML，共同为大规模、高噪声环境下的结构化数据匹配提供了坚实的算法与理论基础。</p>
+                <p class="lang-en">The Gromov-Wasserstein (GW) problem is an important mathematical tool for measuring differences between two structured spaces. Unlike ordinary distance measures such as optimal transport, GW compares internal structures even when two objects do not share the same coordinate system. This talk presents recent progress on scalable and robust GW computation. For the O(n^3) computational bottleneck, LoBCD-GW exploits sparse data dependencies and reduces the complexity to O(r^3), where r is much smaller than n. For structural noise such as spurious edges, the SRGW framework uses a dual-mask mechanism to filter local geometric distortions while preserving global structure. These two ICML works provide algorithmic and theoretical foundations for large-scale noisy structured-data matching.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">丁虎，2009年本科毕业于中山大学数学系，2015年博士毕业于美国纽约州立大学布法罗分校计算机科学与工程系，并获全系最佳博士论文。主要研究方向包括计算几何、大数据优化算法，以及在人工智能、芯片设计、生物医学等领域的应用。曾任美国密歇根州立大学计算机科学与工程系（tenure-track）助理教授，博士生导师。2018年6月到中科大计算机学院工作，任教授，博士生导师。已在知名国际会议和期刊上发表80余篇文章。其中作为第一/通讯作者的科研成果发表在SODA、SoCG、ICALP等算法理论，以及NeurIPS、ICML等应用领域的国际顶级会议。曾获美国自然科学基金CRII award, 伯克利simons fellowship等。多次受邀担任国际知名会议、期刊的审稿人或程序委员会成员。作为计算机算法方向的专家，曾受邀参加美国科学基金的项目评审工作。主持多项国家/省部级科研项目，现为国家科技部重点研发计划青年科学家项目负责人（2021-2026），中科大创新团队培育项目负责人（2022-2024）。</p>
+                <p class="lang-en">Hu Ding received his B.S. from the Department of Mathematics at Sun Yat-sen University in 2009 and his Ph.D. from the Department of Computer Science and Engineering at the State University of New York at Buffalo in 2015, where he received the department's best dissertation award. His research includes computational geometry, large-scale optimization algorithms, and applications in AI, chip design, and biomedicine. He joined USTC in 2018 and is now a professor and doctoral advisor. He has published more than 80 papers, including first-author or corresponding-author work in SODA, SoCG, ICALP, NeurIPS, and ICML.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">冯逸丁</span><span class="lang-en">Yiding Feng</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港科技大学</span><span class="lang-en">Hong Kong University of Science and Technology</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Strengthening Bulow-Klemperer-Style Results for Multi-Unit Auctions</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>The classic result of Bulow and Klemperer (1996) shows that in multi-unit auctions with m units and n≥m buyers whose values are sampled i.i.d. from a regular distribution, the revenue of the VCG auction with m additional buyers is at least as large as the optimal revenue. Unfortunately, for regular distributions, adding m additional buyers is sometimes indeed necessary, so the "competition complexity" of the VCG auction is m. We seek proving better competition complexity results in two dimensions. First, under stronger distributional assumptions, the competition complexity of VCG auction drops dramatically. In balanced markets (where m=n) with MHR distributions, it is sufficient to only add 0.4447n additional buyers to match the optimal revenue -- less than half the number that is necessary under regularity -- and this bound is asymptotically tight. We provide both exact finite-market results for small value of n, and closed-form asymptotic formulas for general market with any m≤n, and any target fraction of the optimal revenue. Second, we analyze a supply-limiting variant of VCG auction that caps the number of units sold in a prior-independent way. Whenever the goal is to achieve almost the optimal revenue, this mechanism strictly improves upon standard VCG auction, requiring significantly fewer additional buyers.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Yiding Feng is an Assistant Professor in the Department of Industrial Engineering and Decision Analytics at the Hong Kong University of Science and Technology (HKUST). Prior to joining HKUST, he was a Principal Researcher at the University of Chicago Booth School of Business and a Postdoctoral Researcher at Microsoft Research New England. He received his Ph.D. in Computer Science from Northwestern University in 2021 and his B.S. from the ACM Honors Class at Shanghai Jiao Tong University in 2016. His research interests lie at the intersection of operations research, economics and computation, and theoretical computer science. His work has been published in leading journals such as Management Science and Operations Research, as well as top theoretical computer science and economics conferences including STOC, FOCS, SODA, EC, ITCS, and WINE.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">黄志毅</span><span class="lang-en">Zhiyi Huang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港大学</span><span class="lang-en">The University of Hong Kong</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Calibeating Made Simple</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>We study calibeating, the problem of post-processing external forecasts online to minimize cumulative losses and match an informativeness-based benchmark. Unlike prior work, which analyzed calibeating for specific losses with specific arguments, we reduce calibeating to existing online learning techniques and obtain results for general proper losses. We show that calibeating is minimax-equivalent to regret minimization, recover the O(logT) rate for the Brier and log losses, obtain new optimal rates for mixable and bounded losses, and prove that multi-calibeating is minimax-equivalent to the combination of calibeating and the classical expert problem. We also obtain new bounds for achieving calibeating and calibration simultaneously for the Brier loss.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>I am a Professor and the Head of Computer Science at the School of Computing and Data Science, the University of Hong Kong. I work broadly on algorithms, focusing on the role of information and uncertainty in computation. I am interested in algorithms for sequential decision-making under uncertainty, learning based on different forms of information, incentivizing self-interested agents to share private information, and disclosing one kind of information while keeping the other confidential.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">刘正阳</span><span class="lang-en">Zhengyang Liu</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">北京理工大学</span><span class="lang-en">Beijing Institute of Technology</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Computing Exact Second-Price Pacing Equilibria with Few Agents or Goods</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Second-price pacing equilibria (SPPE) play a foundational role in modern online advertising auctions. However, computing or even approximating SPPE is known to be PPAD-hard in general. In this talk, we present a unified algorithmic framework that overcomes this computational barrier, yielding polynomial-time algorithms for exactly computing SPPEs in two natural, restricted market settings: instances with a constant number of buyers or a constant number of goods. Our algorithms heavily rely on a cell-decomposition approach. This is joint work with Yonglei Yan, Yiyang Huang, and Zihe Wang.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">刘正阳，北京理工大学计算机学院长聘副教授、博士生导师。主要研究方向为算法博弈论，在相关领域国际顶级期刊和会议发表论文20余篇。主持国家自然科学基金青年项目、面上项目。现任中国运筹学会博弈论分会理事，中国计算机学会理论计算机科学专委会、计算经济学专委会执行委员。</p>
+                <p class="lang-en">Zhengyang Liu is a tenured associate professor and doctoral advisor at the School of Computer Science, Beijing Institute of Technology. His research focuses on algorithmic game theory. He has published more than 20 papers in leading journals and conferences, led National Natural Science Foundation of China projects, and serves in several professional committees in game theory, theoretical computer science, and computational economics.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">王子贺</span><span class="lang-en">Zihe Wang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">中国人民大学</span><span class="lang-en">Renmin University of China</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Second-Best Bilateral Trade is 1/2 Efficient</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>The landmark Myerson-Satterthwaite Theorem establishes a fundamental impossibility in bilateral trade: no Bayesian incentive-compatible mechanism can simultaneously achieve ex-post efficiency, individual rationality, and strong budget balance. We resolve a long-standing open question regarding the efficiency loss imposed by these constraints. Specifically, we prove that the Bayesian-optimal second-best mechanism always captures at least half of the first-best gains from trade, SB &gt;= 0.5 * FB. This result is tight, definitively closing the gap between the previously best-known bounds of 0.317 and 0.736.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">王子贺，中国人民大学预聘副教授。本科就读于清华大学计算机科学实验班，2016年在清华大学获博士学位，博士导师为唐平中和姚期智，毕业后在上海财经大学工作4年，后加入中国人民大学高瓴人工智能学院。研究兴趣为理论计算机与经济学的交叉学科，如博弈论、机制设计、算法设计等。</p>
+                <p class="lang-en">Zihe Wang is an assistant professor at Renmin University of China. He studied in the computer science experimental class at Tsinghua University and received his Ph.D. from Tsinghua in 2016, advised by Pingzhong Tang and Andrew Chi-Chih Yao. After four years at Shanghai University of Finance and Economics, he joined the Gaoling School of Artificial Intelligence at Renmin University. His research interests include the intersection of theoretical computer science and economics, including game theory, mechanism design, and algorithm design.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">夏盟佶</span><span class="lang-en">Mengji Xia</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">中国科学院软件研究所</span><span class="lang-en">Institute of Software, Chinese Academy of Sciences</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: <span class="lang-zh">统一布尔二分定理的SU(2）群划分方案与进展</span><span class="lang-en">An SU(2) Group-Partition Framework and Progress Toward Unified Boolean Dichotomy Theorems</span></p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p class="lang-zh">CSP二分定理中，3SAT的NP难解性、Horn-SAT的多项式时间易解性，来自约束函数集合F，分别由3元析取函数、Horn函数构成时的本质属性。需用更广的Rtw-CSP类，容纳易解的最大匹配问题。在计数问题版本中，布尔变量的二分定理，经历了30年的发展，距离#Rtw-CSP的二分定理，也叫作Holant问题，还有十八盘。最新的二分定理，解决了约束函数集合F中，存在奇数元函数的情形。粗犷视角下，只剩下F完全由偶数元函数构成的情形。假设F有限，函数的值域为R的代数扩域。精细的代数视角下，可以分析得到，#F能实现的二元函数，必构成一个SL(2,C）的有限群。 根据有限群有酉表示，可由SU(2）的分类结果，分为五大类。按计数复杂性的研究特点，细分为九类。按照两个互斥条件：任意四元函数都可分解，存在一个真四元不可分解函数，分为上下九类。下九类需解决四元根基，可用作归纳起始；上九类，需解决任意元函数，能否保持非＜T&gt;性质，归纳法降元至四元的问题。上九类可能还有以下巧修栈道至已知二分定理的途径：任意四元函数都可分解时，类似#EO二分定理的实数化证明过程，可神奇地从复数值，等价归约到实数值的问题，继而尝试调用Real-Holant的二分定理。</p>
+                <p class="lang-en">This talk discusses a group-partition framework for unifying Boolean dichotomy theorems. In counting versions of Boolean dichotomy theory, recent work has resolved cases where the constraint set contains odd-arity functions, leaving the even-arity-only case as a central frontier. Under algebraic assumptions, the binary functions realizable by #F form a finite subgroup of SL(2,C). Using unitary representations and the classification of SU(2), these groups can be divided into major classes and further refined for counting complexity. The talk outlines lower and upper classes, the role of four-ary foundations for induction, and possible reductions from complex values to real values inspired by the #EO dichotomy and Real-Holant.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p class="lang-zh">夏盟佶，2008年博士毕业于中科院软件所，2019年任博士生导师。十年前，ITCS成立前夕，与蔡进一、陆品燕、付治国，合作研究#CSP2、六点模型的二分定理；之后几年，欣赏邵帅等在ARS-EO、Real-Holant等类上二分定理，再之后几年，与博士生孟泊宁、王踞秋等，合作#EO、Holant-odd的二分定理。分析总结以上等诸多辉煌的二分定理的覆盖面，形成的群划分方案，首次汇报于此，祝贺ITCS十周年。</p>
+                <p class="lang-en">Mengji Xia received his Ph.D. from the Institute of Software, Chinese Academy of Sciences in 2008 and became a doctoral advisor in 2019. Around the founding of ITCS, he worked with Jin-Yi Cai, Pinyan Lu, and Zhiguo Fu on dichotomy theorems for #CSP2 and the six-vertex model. He later studied and built on dichotomy results for ARS-EO, Real-Holant, #EO, and Holant-odd. This talk summarizes these developments and presents a group-partition framework in celebration of ITCS's 10th anniversary.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">陈翌佳</span><span class="lang-en">Yijia Chen</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">上海交通大学</span><span class="lang-en">Shanghai Jiao Tong University</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Homomorphism Counts on CFI-graphs</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>The CFI-graphs, named after Cai, Fürer, and Immerman, are central to the study of graph isomorphism testing and of first-order logic with counting. Although discovered more than three decades ago, they still find novel applications in many important areas in computer science. In this talk, I will discuss recent results which shed some new light on the CFI-graphs through the lens of homomorphism counts. Among others, this yields a new proof that the minimum dimension of a Weisfeiler-Leman algorithm which distinguishes two CFI-graphs is precisely the tree-width of the base graphs.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Yijia Chen is a professor of Computer Science at Shanghai Jiao Tong University. He received his PhD degree in computer science from Shanghai Jiao Tong University and PhD degree in mathematics from University of Freiburg. He mainly works in logic in computer science, computational complexity, and algorithmic graph theory. He serves at the editorial board of Logic Methods in Computer Science and of Theory of Computing Systems.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">张梦晓</span><span class="lang-en">Mengxiao Zhang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">爱荷华大学</span><span class="lang-en">University of Iowa</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Near-Optimal Last-Iterate Convergence for Zero-Sum Games with Bandit Feedback and Opponent Actions</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Last-iterate convergence of learning dynamics in games has attracted significant recent attention. In two-player zero-sum games with bandit feedback, Fiegel et al. [2025] show a separation between average-iterate and last-iterate convergence in duality gap. However, in many practical settings, the players observe not only their loss but also the opponent's action. We show that t^{-1/2} last-iterate convergence is achievable with high probability in this setting via an efficient algorithm that updates its strategy infrequently by solving an estimated log-barrier regularized game. We identify obstacles preventing standard multi-armed bandit analysis from generalizing to games and develop a new analysis to overcome them. Experiments confirm faster convergence than baselines and prior methods that do not exploit opponent-action feedback.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Mengxiao Zhang is an assistant professor at the Business Analytics Department at University of Iowa. He obtained a PhD degree in Computer Science at University of Southern California advised by Prof. Haipeng Luo. His research is about designing robust and adaptive machine learning algorithms with strong theoretical guarantees, with a focus on general sequential learning problems, including online learning, bandit problems, game theory and various operational research and revenue management applications.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">唐伟</span><span class="lang-en">Wei Tang</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">香港中文大学</span><span class="lang-en">The Chinese University of Hong Kong</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Refinement as a Service: Algorithmic Predictor Refinement</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>Prediction aggregation aims to combine information from multiple predictors into a more informative one. We study this question in the setting of calibrated predictors, where each prediction must equal the conditional expectation of the quantity being predicted given the predictor's signal. Given several calibrated input predictors and the feature distribution, but not the underlying Bayes probabilities, we ask when one can construct refined calibrated predictors that preserve the information in the original predictors and cannot be further refined using the available information. We formulate calibrated predictors as signaling schemes and define refinement through feature-independent garblings. Under this formulation, deterministic output refinement has a polynomial-time algorithm for two input predictors and is NP-hard for arbitrarily many, while randomized output predictors admit a polynomial-time algorithm for any number of inputs.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Wei Tang is an assistant professor in the Department of Decisions, Operations and Technology at the Chinese University of Hong Kong. Before this, he was a postdoctoral fellow at the Data Science Institute, Columbia University. He completed his Ph.D. in Computer Science at Washington University in St. Louis, and received his bachelor's degree from Tianjin University. He is interested in the theoretical aspects of agentic decision-making, where humans, algorithms, or both act as decision-makers.</p>
+            </article>
+
+            <article class="speaker-card">
+                <h3><span class="lang-zh">曹乃仁</span><span class="lang-en">Nairen Cao</span></h3>
+                <p class="speaker-affiliation"><span class="lang-zh">纽约大学</span><span class="lang-en">New York University</span></p>
+                <p class="speaker-title"><strong data-i18n="label_title">报告题目</strong>: Bounding the Fragmentation of B-Trees Subject to Batched Insertions</p>
+                <h4 data-i18n="label_abstract">摘要</h4>
+                <p>B-trees are fundamental in database systems, but repeated insertions can leave their leaves underfull, causing internal fragmentation. A classical result of Yao shows that evenly splitting leaves under uniformly random single-key insertions gives about ln2≈69% average space utilization. We study a more realistic batched model, where each update inserts r consecutive keys at a uniformly random position. We show that batched insertions lead to surprisingly non-monotone behavior: even splitting can work well for some batch sizes but drop to 50% utilization for others. We analyze several simple local splitting strategies and show that for every fixed batch size r, one of these strategies guarantees space utilization bounded away from 50%.</p>
+                <h4 data-i18n="label_bio">个人简介</h4>
+                <p>Nairen Cao is a Faculty Fellow at NYU Tandon School of Engineering working in theoretical computer science. His research lies in algorithm design and analysis, with a particular focus on parallel and distributed algorithms for graph problems and combinatorial optimization. He has worked on topics including shortest paths, correlation clustering, and related problems in modern parallel models. His papers have appeared in venues such as STOC, SODA, SPAA, PODC, ESA, and ICALP, and his work received Outstanding Paper Awards at SPAA in 2022 and 2023.</p>
+            </article>
+        </div>
+
+        <div class="register" id="register">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_register">注册报名</h2>
+            <div class="register-content lang-zh">
+                <p>请注意：参会者及墙报展示者须完成会议注册。</p>
+                <p><a class="poster-link" href="https://v.wjx.cn/vm/mZqCXLf.aspx" target="_blank" rel="noopener">完成会议注册</a></p>
+            </div>
+            <div class="register-content lang-en">
+                <p>Please note that participants and poster presenters must complete workshop registration.</p>
+                <p><a class="poster-link" href="https://v.wjx.cn/vm/mZqCXLf.aspx" target="_blank" rel="noopener">Register for the Workshop</a></p>
+            </div>
+        </div>
+
+        <div class="poster" id="poster">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_poster">墙报</h2>
+            <div class="poster-content lang-zh">
+                <h3>Poster Session 墙报征集</h3>
+                <p>ITCS 十周年 Workshop 面向全体参会师生征集墙报。凡与理论计算机科学及相关交叉领域相关的已发表论文、在投论文、正在进行中的研究项目或阶段性成果，均欢迎投稿。我们尤其鼓励青年学者、博士后、博士生和硕士生参与展示。</p>
+                <p><strong>投稿截止日期：</strong>2026年6月1日</p>
+                <p><a class="poster-link" href="https://www.wjx.top/vm/PpRvY6P.aspx" target="_blank" rel="noopener">提交 Poster 投稿</a></p>
+
+                <h3>投稿要求</h3>
+                <ul>
+                    <li>论文标题</li>
+                    <li>论文摘要</li>
+                    <li>主要宣讲人</li>
+                    <li>单位信息</li>
+                    <li>论文是否已发表</li>
+                </ul>
+                <p>墙报投稿将由组委会进行简要审核。若截止日期后仍有剩余名额，组委会将酌情考虑接受逾期投稿。每张墙报应有一名主要宣讲人；每人最多只能担任一张墙报的主要宣讲人，合作参与的墙报数量不限。</p>
+
+                <h3>展示说明</h3>
+                <p>墙报展示将采用现场展示形式进行。请入选展示者自行设计、制作并携带墙报至会场。</p>
+                <ul>
+                    <li>建议尺寸：长120 cm × 宽90 cm</li>
+                    <li>建议语言：英文</li>
+                </ul>
+            </div>
+
+            <div class="poster-content lang-en">
+                <h3>Poster Session Call</h3>
+                <p>The ITCS 10th Anniversary Workshop invites poster submissions from all participating faculty members and students. Published papers, submitted papers, ongoing projects, and preliminary results related to theoretical computer science and relevant interdisciplinary fields are all welcome. Young scholars, postdoctoral researchers, Ph.D. students, and master's students are especially encouraged to participate.</p>
+                <p><strong>Submission deadline:</strong> June 1, 2026</p>
+                <p><a class="poster-link" href="https://www.wjx.top/vm/PpRvY6P.aspx" target="_blank" rel="noopener">Submit a Poster Proposal</a></p>
+
+                <h3>Submission Requirements</h3>
+                <ul>
+                    <li>Paper title</li>
+                    <li>Abstract</li>
+                    <li>Main presenter</li>
+                    <li>Affiliation</li>
+                    <li>Publication status</li>
+                </ul>
+                <p>Submissions will be briefly reviewed by the organizing committee. Late submissions may be considered if space remains. Each poster should have one main presenter; each person may serve as the main presenter for at most one poster, while collaborative participation in other posters is not limited.</p>
+
+                <h3>Presentation Guidelines</h3>
+                <p>The Poster Session will be held onsite. Selected presenters should design, print, and bring their posters to the venue.</p>
+                <ul>
+                    <li>Recommended size: 120 cm × 90 cm</li>
+                    <li>Recommended language: English</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="organization" id="organization">
+            <div style="height: 50px;"></div>
+            <h2 data-i18n="section_organization">组织机构</h2>
+            <p data-i18n="host_unit">
+                承办单位：上海财经大学理论计算机科学研究中心（ITCS）
+            </p>
+            <p data-i18n="co_host_unit">
+                承办单位：计算经济交叉科学教育部重点实验室
+            </p>
+            <p data-i18n="contact_email">
+                联系邮箱：liang.huili@sufe.edu.cn
+            </p>
+        </div>
+        <div style="height: 30px;"></div>
     </div>
 </body>
 
