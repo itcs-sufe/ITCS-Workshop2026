@@ -752,6 +752,10 @@ p {
     font-weight: 300;
 }
 
+.event-meta {
+    text-align: left;
+}
+
 html[lang="en"] p,
 html[lang="en"] .info-list li,
 html[lang="en"] .poster-content li {
