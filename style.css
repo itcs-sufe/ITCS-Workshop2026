@@ -1325,6 +1325,45 @@ html[lang="zh"] .lang-en {
     color: var(--text-muted);
 }
 
+.speaker-bio-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.speaker-bio-heading h4 {
+    margin: 0;
+}
+
+.speaker-homepage {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.speaker-homepage-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 3px 9px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.speaker-homepage-link:hover,
+.speaker-homepage-link:focus-visible {
+    background: var(--accent-color);
+    color: #fff;
+    outline: none;
+}
+
 .speaker-time {
     margin-top: 0;
     margin-bottom: 8px;

@@ -207,6 +207,9 @@ document.addEventListener('DOMContentLoaded', function () {
         card.setAttribute('role', 'button');
         card.setAttribute('aria-expanded', 'false');
         card.addEventListener('click', () => toggleSpeakerCard(card));
+        card.querySelectorAll('.speaker-homepage-link').forEach((link) => {
+            link.addEventListener('click', (event) => event.stopPropagation());
+        });
         card.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
